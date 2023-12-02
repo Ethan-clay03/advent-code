@@ -97,39 +97,38 @@ class day2
     }
 
     function calculateCubePowers($game_data) 
-{
-    $game_total = 0;
+    {
+        $game_total = 0;
 
-    foreach ($game_data as $games) {
-        $highest_green = 0;
-        $highest_red = 0;
-        $highest_blue = 0;
+        foreach ($game_data as $games) {
+            $highest_green = 0;
+            $highest_red = 0;
+            $highest_blue = 0;
 
-        foreach ($games as $game) {
-            foreach ($game as $row) {
-                foreach ($row as $colour => $count) {
-                    switch ($colour) {
-                        case "green":
-                            $highest_green = max($highest_green, $count);
-                            break;
-                        case "red":
-                            $highest_red = max($highest_red, $count);
-                            break;
-                        case "blue":
-                            $highest_blue = max($highest_blue, $count);
-                            break;
+            foreach ($games as $game) {
+                foreach ($game as $row) {
+                    foreach ($row as $colour => $count) {
+                        switch ($colour) {
+                            case "green":
+                                $highest_green = max($highest_green, $count);
+                                break;
+                            case "red":
+                                $highest_red = max($highest_red, $count);
+                                break;
+                            case "blue":
+                                $highest_blue = max($highest_blue, $count);
+                                break;
+                        }
                     }
                 }
             }
+            
+            $game_highest_total = ($highest_green * $highest_red * $highest_blue);
+            $game_total = $game_highest_total + $game_total;
         }
 
-        // Multiply the highest values and add to grand total
-        $game_highest_total = ($highest_green * $highest_red * $highest_blue);
-        $game_total = $game_highest_total + $game_total;
+        return $game_total;
     }
-
-    return $game_total;
-}
 
 }
 
