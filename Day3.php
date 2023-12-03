@@ -69,8 +69,8 @@ class day3
             $b = $letter + $neighbour[1];
 
             if ($a >= 0 && $a < count($array) && $b >= 0 && $b < strlen($array[$a])) {
-                $adjectent = $array[$a][$b];
-                if (!is_numeric($adjectent) && $adjectent !== '.' && $adjectent !== ' ') {
+                $adjacent = $array[$a][$b];
+                if (!is_numeric($adjacent) && $adjacent !== '.' && $adjacent !== ' ') {
                     if ($part == 1) {
                         return true;
                     } else {
